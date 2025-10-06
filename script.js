@@ -5,6 +5,8 @@ const width = 20
 const alienRemoved = []
 let currentShooterIndex = 369
 let invadersId
+let isGoingRight = true
+let direction = 1
 
 // Drawing 400 cells
 for (let i = 0; i < width * width; i++) {
@@ -23,6 +25,7 @@ const alienInvaders = [
   49, 50, 51, 52, 53, 54, 55,
 ]
 
+//Drawing the invaders ontop of the grid
 function draw() {
   for (let i = 0; i < alienInvaders.length; i++) {
     if (!alienRemoved.includes(i)) {
@@ -33,20 +36,22 @@ function draw() {
 
 squares[currentShooterIndex].setAttribute("id", "shooter")
 
+//Redrawing the Aliens
 function remove() {
   for (let i = 0; i < alienInvaders.length; i++) {
     squares[alienInvaders[i]].removeAttribute("id")
   }
 }
 
+//Logic for Moving the shooter
 function moveShooter(e) {
   squares[currentShooterIndex].removeAttribute("id")
   switch (e.key) {
     case "ArrowLeft":
-      if (currentShooterIndex % width !== 0) currentShooterIndex -= 1
+      if (currentShooterIndex % width !== 0) currentShooterIndex -= 1 //Will not move to beyond the left border
       break
     case "ArrowRight":
-      if (currentShooterIndex % width < width - 1) currentShooterIndex += 1
+      if (currentShooterIndex % width < width - 1) currentShooterIndex += 1 //Will not move to beyond the right border
       break
   }
   squares[currentShooterIndex].setAttribute("id", "shooter")
@@ -54,17 +59,58 @@ function moveShooter(e) {
 
 document.addEventListener("keydown", moveShooter)
 
+//Logic to move Aliens by redrawing them with increments
 function moveInvaders() {
   const leftEdge = alienInvaders[0] % width === 0
-  const rightEdge = alienInvaders[alienInvaders.length - 1] % width === -1
+  const rightEdge =
+    alienInvaders[alienInvaders.length - 1] % width === width - 1
+
   remove()
 
-  for (let i = 0; i < alienInvaders.length; i++) {
-    alienInvaders[i] += 1
+  if (rightEdge && isGoingRight) {
+    for (let i = 0; i < alienInvaders.length; i++) {
+      alienInvaders[i] += width // Move down
+    }
+    direction = -1
+    isGoingRight = false
+  } else if (leftEdge && !isGoingRight) {
+    for (let i = 0; i < alienInvaders.length; i++) {
+      alienInvaders[i] += width // Move down
+    }
+    direction = 1
+    isGoingRight = true
+  } else {
+    for (let i = 0; i < alienInvaders.length; i++) {
+      alienInvaders[i] += direction // Move left or right
+    }
   }
+
   draw()
+
+  // Check for game over condition: Invaders touching the shooter
+  for (let i = 0; i < alienInvaders.length; i++) {
+    if (alienInvaders[i] === currentShooterIndex) {
+      resultsDisplay.innerHTML = "GAME OVER"
+      clearInterval(invadersId)
+      return // Exit the function
+    }
+  }
+
+  // Check if all Invaders are gone
+  if (alienRemoved.length === alienInvaders.length) {
+    resultsDisplay.innerHTML = "You have saved the Kingdom"
+    clearInterval(invadersId)
+  }
 }
 
+draw()
+// Check for game over condition
+if (alienInvaders.some((invader) => invader >= squares.length - width)) {
+  resultsDisplay.innerHTML = "GAME OVER"
+  clearInterval(invadersId)
+}
+
+//Speed of invaders movement
 invadersId = setInterval(moveInvaders, 600)
 
 draw()
