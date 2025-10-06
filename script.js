@@ -4,6 +4,7 @@ const resultsDisplay = document.querySelector(".results")
 const width = 20
 const alienRemoved = []
 let currentShooterIndex = 369
+let invadersId
 
 // Drawing 400 cells
 for (let i = 0; i < width * width; i++) {
@@ -32,6 +33,12 @@ function draw() {
 
 squares[currentShooterIndex].setAttribute("id", "shooter")
 
+function remove() {
+  for (let i = 0; i < alienInvaders.length; i++) {
+    squares[alienInvaders[i]].removeAttribute("id")
+  }
+}
+
 function moveShooter(e) {
   squares[currentShooterIndex].removeAttribute("id")
   switch (e.key) {
@@ -46,5 +53,18 @@ function moveShooter(e) {
 }
 
 document.addEventListener("keydown", moveShooter)
+
+function moveInvaders() {
+  const leftEdge = alienInvaders[0] % width === 0
+  const rightEdge = alienInvaders[alienInvaders.length - 1] % width === -1
+  remove()
+
+  for (let i = 0; i < alienInvaders.length; i++) {
+    alienInvaders[i] += 1
+  }
+  draw()
+}
+
+invadersId = setInterval(moveInvaders, 600)
 
 draw()
