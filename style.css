@@ -38,23 +38,22 @@ h1 {
   border-radius: 10px; /* Rounded corners */
 }
 
-.grid div {
-  width: 20px;
-  height: 20px;
-  border-radius: 4px; /* Slightly rounded */
-  border: solid 1px rgb(37, 37, 37);
-}
-
 .invader {
   background-color: #f44336; /* Invaders color */
 }
 
 .shooter {
-  background-color: #0957ff; /* Invaders color */
+  background-color: #0957ff; /* Shooter color */
+  width: 20px; /* Width of the triangle */
+  height: 20px; /* Height of the triangle */
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Triangle shape */
+  position: relative; /* For positioning */
+  margin: 0 auto; /* Centering in the grid cell */
 }
 
 .bullet {
   background-color: #c5d7fc; /* Invaders color */
+  border-radius: 40px;
 }
 
 /* Make the game work on different screen sizes */

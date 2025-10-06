@@ -7,6 +7,7 @@ let currentShooterIndex = 369
 let invadersId
 let isGoingRight = true
 let direction = 1
+let results = 0
 
 // Drawing 400 cells
 for (let i = 0; i < width * width; i++) {
@@ -125,10 +126,21 @@ function shoot(e) {
     if (currentLaserIndex >= 0) {
       squares[currentLaserIndex].classList.add("bullet")
     }
+
+    // Check for collision with invaders
     if (squares[currentLaserIndex].classList.contains("invader")) {
       squares[currentLaserIndex].classList.remove("bullet")
       squares[currentLaserIndex].classList.remove("invader")
-      alienRemoved.push(alienInvaders.indexOf(currentLaserIndex)) // Mark invader as removed
+
+      // Mark invader as removed and update results
+      const invaderIndex = alienInvaders.indexOf(currentLaserIndex)
+      if (invaderIndex !== -1 && !alienRemoved.includes(invaderIndex)) {
+        alienRemoved.push(invaderIndex) // Mark invader as removed
+        results++ // Increment score
+        resultsDisplay.innerHTML = results // Display score
+      }
+
+      clearInterval(bulletId) // Stop the bullet movement after hitting
     }
   }
 
@@ -138,7 +150,6 @@ function shoot(e) {
       break
   }
 }
-
 // Event to shoot
 document.addEventListener("keydown", shoot)
 

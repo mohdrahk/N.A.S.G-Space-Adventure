@@ -25,7 +25,7 @@ const alienInvaders = [
   49, 50, 51, 52, 53, 54, 55,
 ]
 
-//Drawing the invaders ontop of the grid
+//Drawing the invaders on top of the grid
 function draw() {
   for (let i = 0; i < alienInvaders.length; i++) {
     if (!alienRemoved.includes(i)) {
@@ -104,7 +104,6 @@ function moveInvaders() {
   }
 }
 
-draw()
 // Check for game over condition
 if (alienInvaders.some((invader) => invader >= squares.length - width)) {
   resultsDisplay.innerHTML = "GAME OVER"
