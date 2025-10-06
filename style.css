@@ -44,8 +44,12 @@ h1 {
 
 #invader {
   background-color: #f44336; /* Invaders color */
-  z-index: 1;
 }
+
+#shooter {
+  background-color: #0957ff; /* Invaders color */
+}
+
 .cell {
   width: 20px;
   height: 20px;

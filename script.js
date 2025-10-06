@@ -2,6 +2,8 @@
 const grid = document.querySelector(".grid")
 const resultsDisplay = document.querySelector(".results")
 const width = 20
+const alienRemoved = []
+let currentShooterIndex = 369
 
 // Drawing 400 cells
 for (let i = 0; i < width * width; i++) {
@@ -22,8 +24,12 @@ const alienInvaders = [
 
 function draw() {
   for (let i = 0; i < alienInvaders.length; i++) {
-    squares[alienInvaders[i]].setAttribute("id", "invader")
+    if (!alienRemoved.includes(i)) {
+      squares[alienInvaders[i]].setAttribute("id", "invader")
+    }
   }
 }
+
+squares[currentShooterIndex].setAttribute("id", "shooter")
 
 draw()
