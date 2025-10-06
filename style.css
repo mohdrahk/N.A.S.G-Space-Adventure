@@ -1,10 +1,6 @@
 Color palette used throughout the game :root {
   --background-dark: #1a1a1a; /* Grid background */
   --cell-dark: #2a2a2a; /* Empty cells */
-  --snake-green: #4caf50; /* Snake body */
-  --snake-head: #66bb6a; /* Snake head */
-
-  --bullet-orange: #ff9800; /* Bullet color */
   --border-green: #4caf50; /* Grid border */
 }
 
@@ -42,23 +38,23 @@ h1 {
   border-radius: 10px; /* Rounded corners */
 }
 
-#invader {
+.grid div {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px; /* Slightly rounded */
+  border: solid 1px rgb(37, 37, 37);
+}
+
+.invader {
   background-color: #f44336; /* Invaders color */
 }
 
-#shooter {
+.shooter {
   background-color: #0957ff; /* Invaders color */
 }
 
-#bullet {
+.bullet {
   background-color: #c5d7fc; /* Invaders color */
-}
-
-.cell {
-  width: 20px;
-  height: 20px;
-  background-color: #2a2a2a; /* Dark gray */
-  border-radius: 2px; /* Slightly rounded */
 }
 
 /* Make the game work on different screen sizes */
