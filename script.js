@@ -32,4 +32,19 @@ function draw() {
 
 squares[currentShooterIndex].setAttribute("id", "shooter")
 
+function moveShooter(e) {
+  squares[currentShooterIndex].removeAttribute("id")
+  switch (e.key) {
+    case "ArrowLeft":
+      if (currentShooterIndex % width !== 0) currentShooterIndex -= 1
+      break
+    case "ArrowRight":
+      if (currentShooterIndex % width < width - 1) currentShooterIndex += 1
+      break
+  }
+  squares[currentShooterIndex].setAttribute("id", "shooter")
+}
+
+document.addEventListener("keydown", moveShooter)
+
 draw()
