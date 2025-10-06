@@ -57,6 +57,7 @@ function moveShooter(e) {
   squares[currentShooterIndex].setAttribute("id", "shooter")
 }
 
+//Event listener to move Hero Ship
 document.addEventListener("keydown", moveShooter)
 
 //Logic to move Aliens by redrawing them with increments
@@ -112,5 +113,35 @@ if (alienInvaders.some((invader) => invader >= squares.length - width)) {
 
 //Speed of invaders movement
 invadersId = setInterval(moveInvaders, 600)
+
+//Adding bullets/lasers
+
+function shoot(e) {
+  let bulletId
+  let currentLaserIndex = currentShooterIndex
+
+  function moveBullet() {
+    // Remove the bullet ID only if it's not the shooter's position
+    if (squares[currentLaserIndex].id === "bullet") {
+      squares[currentLaserIndex].removeAttribute("id") // Remove bullet ID
+    }
+
+    currentLaserIndex -= width // Move the bullet up
+
+    // Add the bullet ID to the new position
+    if (currentLaserIndex >= 0) {
+      squares[currentLaserIndex].setAttribute("id", "bullet")
+    }
+  }
+
+  switch (e.key) {
+    case "ArrowUp":
+      bulletId = setInterval(moveBullet, 100)
+      break
+  }
+}
+
+//Event to shoot
+document.addEventListener("keydown", shoot)
 
 draw()

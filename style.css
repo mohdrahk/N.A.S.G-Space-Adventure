@@ -50,6 +50,10 @@ h1 {
   background-color: #0957ff; /* Invaders color */
 }
 
+#bullet {
+  background-color: #c5d7fc; /* Invaders color */
+}
+
 .cell {
   width: 20px;
   height: 20px;
