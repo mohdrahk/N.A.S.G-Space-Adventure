@@ -21,7 +21,6 @@ body {
   background: rgba(0, 0, 0, 0.3);
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 h1 {
   margin-bottom: 20px;
@@ -43,7 +42,7 @@ h1 {
 }
 
 .shooter {
-  background-color: #0957ff; /* Shooter color */
+  background-color: #4caf50; /* Shooter color */
   width: 20px; /* Width of the triangle */
   height: 20px; /* Height of the triangle */
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Triangle shape */
@@ -53,7 +52,9 @@ h1 {
 
 .bullet {
   background-color: #c5d7fc; /* Invaders color */
-  border-radius: 40px;
+  border-radius: 20px #1a1a1a;
+  width: 20px; /* Width of the triangle */
+  height: 10px; /* Height of the triangle */
 }
 
 /* Make the game work on different screen sizes */
@@ -67,6 +68,31 @@ h1 {
   gap: 30px; /* Space between game and info panel */
   flex-wrap: wrap; /* Wrap to new line on small screens */
   justify-content: center; /* Center everything */
+}
+
+.poster {
+  width: 60%;
+  border-radius: 40px;
+}
+
+.title {
+  width: 40%;
+}
+
+#buttons {
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  background-color: #dd5d9f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 200ms, transform 200ms;
+}
+
+#buttons:hover {
+  background-color: #831d51;
+  cursor: pointer;
+  transform: translateY(-3px);
 }
 
 /* On small screens, stack vertically */
