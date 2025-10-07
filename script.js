@@ -22,6 +22,7 @@ let invadersId
 let isGoingRight = true
 let direction = 1
 let results = 0
+const levelWinner = document.querySelector(".level-winner")
 
 // Drawing 400 cells
 for (let i = 0; i < width * width; i++) {
@@ -114,6 +115,8 @@ function moveInvaders() {
   // Check if all Invaders are gone
   if (alienRemoved.length === alienInvaders.length) {
     resultsDisplay.innerHTML = "You have saved the Kingdom"
+    levelWinner.style.opacity = "1"
+    grid.style.opacity = "0"
     clearInterval(invadersId)
   }
 }
