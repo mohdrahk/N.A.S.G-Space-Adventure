@@ -15,7 +15,16 @@
       </div>
       <a href="/svkingdom.html"><button id="buttons">Story mode</button></a>
       <button id="buttons">Infinite mode</button>
+      <button class="musicbtn" id="music-toggle" onclick="toggleMusic()">
+        Play Music
+      </button>
     </div>
+
+    <!-- Background music -->
+    <audio id="background-music" autoplay loop>
+      <source src="./bg.mp3" type="audio/mpeg" />
+      Your browser does not support the audio tag.
+    </audio>
   </body>
   <script src="./script.js" defer></script>
 </html>

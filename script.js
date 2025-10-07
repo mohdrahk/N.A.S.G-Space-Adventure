@@ -1,3 +1,17 @@
+// Music Button
+function toggleMusic() {
+  const audio = document.getElementById("background-music")
+  const button = document.getElementById("music-toggle")
+
+  if (audio.paused) {
+    audio.play()
+    button.textContent = "Stop Music" // Update button text
+  } else {
+    audio.pause()
+    button.textContent = "Play Music" // Update button text
+  }
+}
+
 // Variables
 const grid = document.querySelector(".grid")
 const resultsDisplay = document.querySelector(".results")
@@ -110,9 +124,15 @@ draw()
 invadersId = setInterval(moveInvaders, 600)
 
 // Adding bullets/lasers
+
 function shoot(e) {
   let bulletId
   let currentLaserIndex = currentShooterIndex
+
+  // Play shoot sound
+  const shootSound = document.getElementById("shoot-sound")
+  shootSound.currentTime = 0 // Have to reset sound to play
+  shootSound.play()
 
   function moveBullet() {
     // Remove the bullet class only if it's not the shooter's position
@@ -131,6 +151,11 @@ function shoot(e) {
     if (squares[currentLaserIndex].classList.contains("invader")) {
       squares[currentLaserIndex].classList.remove("bullet")
       squares[currentLaserIndex].classList.remove("invader")
+
+      // Play hit sound
+      const hitSound = document.getElementById("hit-sound")
+      hitSound.currentTime = 0 // Reset sound to start
+      hitSound.play()
 
       // Mark invader as removed and update results
       const invaderIndex = alienInvaders.indexOf(currentLaserIndex)

@@ -1,7 +1,7 @@
 Color palette used throughout the game :root {
   --background-dark: #1a1a1a; /* Grid background */
   --cell-dark: #2a2a2a; /* Empty cells */
-  --border-green: #4caf50; /* Grid border */
+  --border-green: #831d51; /* Grid border */
 }
 
 body {
@@ -24,7 +24,7 @@ body {
 }
 h1 {
   margin-bottom: 20px;
-  color: #4caf50;
+  color: #d9207f;
 }
 .grid {
   display: grid; /* Enable CSS Grid layout */
@@ -33,16 +33,16 @@ h1 {
   gap: 1px; /* 1px space between cells */
   background-color: #1a1a1a; /* Dark background */
   padding: 15px; /* Space around the grid */
-  border: 3px solid #4caf50; /* Green border */
+  border: 3px solid #831d51; /* Green border */
   border-radius: 10px; /* Rounded corners */
 }
 
 .invader {
-  background-color: #f44336; /* Invaders color */
+  background-color: #36bef4; /* Invaders color */
 }
 
 .shooter {
-  background-color: #4caf50; /* Shooter color */
+  background-color: #c92278; /* Shooter color */
   width: 20px; /* Width of the triangle */
   height: 20px; /* Height of the triangle */
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Triangle shape */
@@ -87,6 +87,21 @@ h1 {
   border: none;
   border-radius: 5px;
   transition: background-color 200ms, transform 200ms;
+}
+
+.musicbtn {
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  background-color: #dd5d9f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 200ms, transform 200ms;
+}
+.musicbtn:hover {
+  background-color: #831d51;
+  cursor: pointer;
+  transform: translateY(-3px);
 }
 
 #buttons:hover {
