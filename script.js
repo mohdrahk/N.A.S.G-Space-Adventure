@@ -182,3 +182,19 @@ function shoot(e) {
 document.addEventListener("keydown", shoot)
 
 draw()
+
+function toggleHow() {
+  const image = document.getElementById("toggleImage")
+  const button = document.getElementById("toggle-Button")
+
+  const image1 = "NASGposter.jpg"
+  const image2 = "howtoposter.png"
+
+  button.addEventListener("click", () => {
+    if (image.src.endsWith(image2)) {
+      image.src = image1
+    } else {
+      image.src = image2
+    }
+  })
+}
