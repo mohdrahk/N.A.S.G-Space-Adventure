@@ -38,26 +38,10 @@ h1 {
   border-radius: 10px; /* Rounded corners */
 }
 
-/* .invader
-.invader {
-  background-color: #36bef4; Invaders color
-}
-
-*/
 .invader {
   background-image: url("evilufo.png");
   background-size: cover;
 }
-/*
-.shooter {
-  background-color: #c92278; /* Shooter color */ /*
-  width: 20px; /* Width of the triangle */ /*
-  height: 20px; /* Height of the triangle */ /*
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Triangle shape */ /*
-  position: relative; /* For positioning */ /*
-  margin: 0 auto; /* Centering in the grid cell */
-/*
-} */
 
 .shooter {
   background-image: url("herocraft.png");
@@ -68,14 +52,6 @@ h1 {
   background-image: url("lazerbullet.png");
   background-size: cover;
 }
-
-/*
-.bullet {
-  background-color: #c5d7fc; Invaders color
-  border-radius: 20px #1a1a1a;
-  width: 20px;
-  height: 10px;
-}*/
 
 /* Make the game work on different screen sizes */
 .container {

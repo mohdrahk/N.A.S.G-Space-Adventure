@@ -31,7 +31,6 @@ for (let i = 0; i < width * width; i++) {
 }
 
 const squares = Array.from(document.querySelectorAll(".grid div"))
-console.log(squares)
 
 // Placing the Alien Invaders
 const alienInvaders = [
