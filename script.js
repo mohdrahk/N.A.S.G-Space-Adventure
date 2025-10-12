@@ -117,6 +117,10 @@ function moveInvaders() {
     levelWinner.style.opacity = "1"
     grid.style.opacity = "0"
     clearInterval(invadersId)
+
+    const audio = document.getElementById("background-music")
+    audio.src = "epicwin.mp3"
+    audio.play()
   }
 }
 
