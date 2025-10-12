@@ -1,5 +1,8 @@
 # N.A.S.G SPACE ADVENTURE
 
+##### SAVE THE KINGDOM
+![NASG](/NASGposter.jpg)
+
 ## Date: 23/9/2025
 
 ### By: Mohamed Khamis
@@ -70,11 +73,22 @@
 
 ### ***Future Updates***
 
-- [ ] Level 1 with enemy patterns
-- [ ] Level 2 faster and more random patterns
-- [ ]  Have a health system instead of a one hit system
+- [x] Level 1 with enemy patterns
+- [x] Ending
+- [x] Music
+- [x] Models
+- [ ] Infinite Mode with Faster moving enemies
+- [ ] Shooting mode
+- [ ] Have a health system instead of a one hit system
 ***
 
+
 ### ***Credits***
-<!--   -->
+
+##### Snake Game concept by DazFather: [Codepen](https://codepen.io/DazFather/pen/rNzWWzv)
+
+##### ALmost all tests from: [W3 Schools](https://www.w3schools.com)
+
+
 ***
+
